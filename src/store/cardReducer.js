@@ -1,7 +1,15 @@
-import product from "../json.json";
+
+
 const defaultState = {
-  product,
+  date:[]
 };
-export const cardReducer = (state = defaultState, acttion) => {
-  return state;
+export const cardReducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case "INCREASE": {
+      state.date.unshift(action.paylaod)
+      return {date:[...state.date] };
+    }
+    default:
+      return state
+  }
 };
